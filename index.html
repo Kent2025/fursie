@@ -1,108 +1,152 @@
 <!DOCTYPE html>
 <html lang="de">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
-    <title>Ich liebe dich</title>
-    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
-    <style>
-      body {
-        background-color: #ffeef5;
-        color: #222;
-        text-align: center;
-        padding: 2rem;
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Ich liebe dich</title>
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
+  <style>
+    body {
+      background-color: #f4c2c2;
+      color: #222;
+      text-align: center;
+      padding: 2rem;
+      position: relative;
+      overflow-x: hidden;
+    }
+
+    h1 {
+      color: #b30000;
+      font-size: 2.5rem;
+    }
+
+    .main-image {
+      max-width: 100%;
+      border-radius: 12px;
+      box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+      margin: 2rem 0;
+    }
+
+    .giftbox {
+      width: 200px;
+      cursor: pointer;
+      transition: transform 0.2s ease;
+    }
+
+    .giftbox:hover {
+      transform: scale(1.05);
+    }
+
+    #giftOpen, #letter {
+      display: none;
+    }
+
+    #letter {
+      background: #fffaf0;
+      border: 1px solid #eac;
+      padding: 1.5rem;
+      margin-top: 2rem;
+      border-radius: 12px;
+      max-width: 600px;
+      margin-left: auto;
+      margin-right: auto;
+      animation: fadeIn 1s ease-in-out;
+    }
+
+    @keyframes fadeIn {
+      from { opacity: 0; transform: translateY(10px); }
+      to { opacity: 1; transform: translateY(0); }
+    }
+
+    .subtitle {
+      color: #444;
+      margin-top: -1rem;
+    }
+
+    .new-year {
+      font-size: 1rem;
+      color: #800000;
+      margin-bottom: 1rem;
+    }
+
+    footer {
+      margin-top: 4rem;
+      font-style: italic;
+      color: #800000;
+    }
+
+    /* Herzchen Animation */
+    .heart {
+      position: absolute;
+      color: #ff4d4d;
+      font-size: 1.2rem;
+      animation: floatUp 1s ease-out forwards;
+      pointer-events: none;
+    }
+
+    @keyframes floatUp {
+      to {
+        transform: translateY(-100px);
+        opacity: 0;
       }
+    }
+  </style>
+  <script>
+    function openGift(event) {
+      document.getElementById('giftClosed').style.display = 'none';
+      document.getElementById('giftOpen').style.display = 'block';
+      document.getElementById('letter').style.display = 'block';
+      showHearts(event);
+    }
 
-      h1 {
-        color: #d00;
-        font-size: 2.5rem;
+    function showHearts(e) {
+      for (let i = 0; i < 10; i++) {
+        const heart = document.createElement('div');
+        heart.className = 'heart';
+        heart.style.left = (e.clientX + Math.random() * 40 - 20) + 'px';
+        heart.style.top = (e.clientY + Math.random() * 40 - 20) + 'px';
+        heart.innerText = '❤️';
+        document.body.appendChild(heart);
+        setTimeout(() => heart.remove(), 1000);
       }
+    }
+  </script>
+</head>
+<body>
+  <div class="new-year">Frohes neues Jahr 2026 🎆</div>
 
-      .main-image {
-        max-width: 100%;
-        border-radius: 12px;
-        box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-        margin: 2rem 0;
-      }
+  <h1>Ich liebe dich ❤️</h1>
+  <p class="subtitle">Für die wundervollste Frau der Welt</p>
 
-      .gift-row {
-        display: flex;
-        flex-direction: column;
-        align-items: center;
-        gap: 1rem;
-      }
+  <!-- Bild mit Rosen -->
+  <img class="main-image" src="liebe.jpg" alt="Ich liebe dich mit Rosen" />
 
-      .giftbox {
-        width: 200px;
-        cursor: pointer;
-        transition: transform 0.2s ease;
-      }
+  <h2>Klick auf das Geschenk 🎁</h2>
 
-      .giftbox:hover {
-        transform: scale(1.05);
-      }
+  <!-- Geschenkbox Bilder -->
+  <div onclick="openGift(event)">
+    <img id="giftClosed" class="giftbox" src="geschenk-zu.png" alt="Geschenk geschlossen" />
+    <img id="giftOpen" class="giftbox" src="geschenk-offen.png" alt="Geschenk geöffnet" />
+  </div>
 
-      #giftOpen,
-      #letter {
-        display: none;
-      }
+  <!-- Briefbereich -->
+  <div id="letter">
+    <h3>Dein Brief 💌</h3>
+    <p>
+      Hey mein Aşk,<br /><br />
+      Das hier ist nur für dich.<br />
+      Ich wollte dir auf meine eigene Art und Weise sagen, wie sehr ich dich liebe…<br />
+      Du bist mein Lieblingsmensch und meine kleine Prinzessin.<br /><br />
+      Das Jahr 2025 war wirklich voller Überraschungen und besonderer Momente,<br />
+      doch jetzt gehen wir gemeinsam ins nächste: <strong>2026</strong>.<br /><br />
+      Ich weiß nicht, was das neue Jahr bringt,<br />
+      aber ich weiß, dass ich es <strong>mit dir</strong> verbringen will.<br /><br />
+      Frohes neues Jahr, <em>bebeğim</em> ❤️
+    </p>
+  </div>
 
-      #letter {
-        background: #fffaf0;
-        border: 1px solid #eac;
-        padding: 1.5rem;
-        margin-top: 2rem;
-        border-radius: 12px;
-        max-width: 600px;
-        margin-left: auto;
-        margin-right: auto;
-        animation: fadeIn 1s ease-in-out;
-      }
-
-      @keyframes fadeIn {
-        from {
-          opacity: 0;
-          transform: translateY(10px);
-        }
-        to {
-          opacity: 1;
-          transform: translateY(0);
-        }
-      }
-
-      .subtitle {
-        color: #555;
-        margin-top: -1rem;
-      }
-    </style>
-    <script>
-      function openGift() {
-        document.getElementById('giftClosed').style.display = 'none';
-        document.getElementById('giftOpen').style.display = 'block';
-        document.getElementById('letter').style.display = 'block';
-      }
-    </script>
-  </head>
-  <body>
-    <h1>Ich liebe dich ❤️</h1>
-    <p class="subtitle">Für die wundervollste Frau der Welt</p>
-
-    <img class="main-image" src="liebe.png" alt="Ich liebe dich mit Rosen" />
-
-    <h2>Klick auf das Geschenk 🎁</h2>
-
-    <div class="gift-row" onclick="openGift()">
-      <img id="giftClosed" class="giftbox" src="geschenk-zu.png" alt="Geschenkbox geschlossen" />
-      <img id="giftOpen" class="giftbox" src="geschenk-offen.png" alt="Geschenkbox geöffnet mit Brief" />
-    </div>
-
-    <div id="letter">
-      <h3>Dein Brief 💌</h3>
-      <p>
-        Du bist das schönste Geschenk meines Lebens.<br />
-        Jeder Moment mit dir ist ein Wunder.<br />
-        Ich liebe dich mehr, als Worte sagen können. ❤️
-      </p>
-    </div>
-  </body>
+  <!-- Unterschrift -->
+  <footer>Dein Schatz ❤️</footer>
+</body>
 </html>
+
