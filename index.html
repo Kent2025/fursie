@@ -7,8 +7,8 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/@picocss/pico@1/css/pico.min.css" />
   <style>
     body {
-      background-color: #f4c2c2;
-      color: #222;
+      background-color: #c27b7b;
+      color: #000;
       text-align: center;
       padding: 2rem;
       position: relative;
@@ -16,7 +16,7 @@
     }
 
     h1 {
-      color: #b30000;
+      color: #fff;
       font-size: 2.5rem;
     }
 
@@ -24,13 +24,16 @@
       max-width: 100%;
       border-radius: 12px;
       box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
-      margin: 2rem 0;
+      margin: 2rem auto;
+      display: block;
     }
 
     .giftbox {
       width: 200px;
       cursor: pointer;
       transition: transform 0.2s ease;
+      margin: 1rem auto;
+      display: block;
     }
 
     .giftbox:hover {
@@ -44,13 +47,15 @@
     #letter {
       background: #fffaf0;
       border: 1px solid #eac;
-      padding: 1.5rem;
+      padding: 2rem;
       margin-top: 2rem;
       border-radius: 12px;
-      max-width: 600px;
+      max-width: 700px;
       margin-left: auto;
       margin-right: auto;
       animation: fadeIn 1s ease-in-out;
+      font-size: 1.2rem;
+      color: #000;
     }
 
     @keyframes fadeIn {
@@ -59,20 +64,20 @@
     }
 
     .subtitle {
-      color: #444;
+      color: #f0f0f0;
       margin-top: -1rem;
     }
 
     .new-year {
       font-size: 1rem;
-      color: #800000;
+      color: #fff;
       margin-bottom: 1rem;
     }
 
     footer {
       margin-top: 4rem;
       font-style: italic;
-      color: #800000;
+      color: #fff;
     }
 
     /* Herzchen Animation */
@@ -118,18 +123,15 @@
   <h1>Ich liebe dich ❤️</h1>
   <p class="subtitle">Für die wundervollste Frau der Welt</p>
 
-  <!-- Bild mit Rosen -->
-  <img class="main-image" src="liebe.png" alt="Ich liebe dich mit Rosen" />
+  <img class="main-image" src="liebe.jpg" alt="Ich liebe dich mit Rosen" />
 
   <h2>Klick auf das Geschenk 🎁</h2>
 
-  <!-- Geschenkbox Bilder -->
   <div onclick="openGift(event)">
     <img id="giftClosed" class="giftbox" src="geschenk-zu.png" alt="Geschenk geschlossen" />
     <img id="giftOpen" class="giftbox" src="geschenk-offen.png" alt="Geschenk geöffnet" />
   </div>
 
-  <!-- Briefbereich -->
   <div id="letter">
     <h3>Dein Brief 💌</h3>
     <p>
@@ -145,8 +147,6 @@
     </p>
   </div>
 
-  <!-- Unterschrift -->
   <footer>Dein Schatz ❤️</footer>
 </body>
 </html>
-
